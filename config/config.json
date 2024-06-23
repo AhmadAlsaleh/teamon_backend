@@ -1,0 +1,24 @@
+{
+  "development": {
+    "username": "root",
+    "password": "P@ssw0rd",
+    "database": "teamon",
+    "host": "127.0.0.1",
+    "dialect": "mysql",
+    "port": 33060
+  },
+  "test": {
+    "username": "root",
+    "password": null,
+    "database": "database_test",
+    "host": "127.0.0.1",
+    "dialect": "mysql"
+  },
+  "production": {
+    "username": "actizqtw_teamon",
+    "password": "dFX6]xBZ#-01",
+    "database": "actizqtw_teamon",
+    "host": "127.0.0.1",
+    "dialect": "mysql"
+  }
+}
