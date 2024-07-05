@@ -57,13 +57,16 @@ const logout = async (req, res) => {
 
 const changePassword = async (req, res) => {
   try {
-    const { currentPassword, newPassword } = req.body;
-    const user = await User.findByPk(req.user.id);
-    if (!user || !(await bcrypt.compare(currentPassword, user.password))) {
-      return res.status(401).json({ error: "Invalid current password" });
+    const { currentPassword, newPassword, email } = req.body;
+    const user = await User.findOne({ where: { email, deletedAt: null } });
+    
+    if (!user || !(await comparePassword(currentPassword, user.password))) {
+      return res.status(401).json({ error: "Invalid credentials" });
     }
-    user.password = await bcrypt.hash(newPassword, 10);
+
+    user.password = newPassword;
     await user.save();
+
     res.status(200).json({ message: "Password changed successfully" });
   } catch (error) {
     res.status(500).json({ error: error.message });

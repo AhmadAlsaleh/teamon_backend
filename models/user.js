@@ -39,6 +39,26 @@ module.exports = (sequelize, DataTypes) => {
         type: DataTypes.BOOLEAN,
         defaultValue: true,
         allowNull: false,
+      },
+      salary: {
+        type: DataTypes.DOUBLE,
+        allowNull: true
+      },
+      workHours: {
+        type: DataTypes.DOUBLE,
+        allowNull: true
+      },
+      breakHours: {
+        type: DataTypes.DOUBLE,
+        allowNull: true
+      },
+      status: {
+        type: DataTypes.STRING,
+        allowNull: true
+      },
+      workdays: {
+        type: DataTypes.STRING,
+        allowNull: true
       }
     },
     {
