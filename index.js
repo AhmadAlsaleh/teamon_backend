@@ -10,6 +10,7 @@ const workStepRouter = require('./routes/workStepRoutes');
 const sequelize = require('./database/connection');
 const fcmTokenRoutes = require('./routes/fcmToken');
 const notificationsRoutes = require('./routes/notifications');
+const walletRoutes = require('./routes/wallet');
 
 const { authenticateToken } = require('./middlewares/authMiddleware');
 
@@ -28,6 +29,7 @@ app.use('/api/fcm', fcmTokenRoutes);
 app.use('/api/workSessions', authenticateToken, workSessionsRouter);
 app.use('/api/workSteps', authenticateToken, workStepRouter);
 app.use('/api/notifications', authenticateToken, notificationsRoutes);
+app.use('/api/wallet', authenticateToken, walletRoutes);
 
 // Error handling middleware
 app.use((err, req, res, next) => {
